@@ -1,3 +1,5 @@
-export default function Home() {
-  return <div>TMDB Clone</div>;
+import Home from "../src/components/unit/home/home.container";
+
+export default function HomePage() {
+  return <Home />;
 }
