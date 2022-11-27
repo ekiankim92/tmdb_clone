@@ -10,7 +10,7 @@ export default function HomeUI() {
         </S.Intro>
         <S.InputWrapper>
           <S.SearchInput placeholder="Search movies, TV shows, cast" />
-          <input type="button" value="Search" />
+          <S.SearchButton type="button" value="Search" />
         </S.InputWrapper>
       </S.IntroWrapper>
     </S.Wrapper>

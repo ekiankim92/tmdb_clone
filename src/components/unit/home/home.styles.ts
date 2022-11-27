@@ -19,12 +19,13 @@ export const Title = styled.h1`
   color: #fff;
   font-size: 2em;
   padding-left: 30px;
+  padding: 2px 0px 10px 30px;
 `;
 
 export const Intro = styled.h2`
   color: #fff;
   font-size: 2em;
-  padding-left: 30px;
+  padding: 2px 0px 10px 30px;
 `;
 
 export const InputWrapper = styled.div`
@@ -39,4 +40,25 @@ export const SearchInput = styled.input`
   height: 46px;
   border-radius: 30px;
   padding: 10px 20px;
+  border: none;
+  :focus {
+    outline: none;
+    border: 1px solid rgba(30, 213, 169);
+  }
+`;
+
+export const SearchButton = styled.input`
+  width: 100px;
+  height: 46px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to right, rgba(30, 213, 169), rgba(1, 180, 228));
+  color: #fff;
+  font-size: 16px;
+  position: relative;
+  right: 50px;
+  :hover {
+    cursor: pointer;
+    color: #000;
+  }
 `;
