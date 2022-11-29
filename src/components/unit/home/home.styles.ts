@@ -12,7 +12,6 @@ export const IntroWrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url("https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,032541,01b4e4)/fgYfch0MGfNEpgzPst49ThKUqA4.jpg");
   background-size: 100%;
 `;
 
