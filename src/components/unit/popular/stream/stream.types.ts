@@ -1,14 +1,15 @@
 export interface PopularProps {
-  isSelected: {
+  isSelected?: {
     stream?: boolean;
     TV?: boolean;
     rent?: boolean;
     theaters?: boolean;
   };
-  onClickStream: () => void;
-  onClickTV: () => void;
-  onClickRent: () => void;
-  onClickTheaters: () => void;
+  onClickStream?: () => void;
+  onClickTV?: () => void;
+  onClickRent?: () => void;
+  onClickTheaters?: () => void;
+  tvPopular: string[];
 }
 
 export interface PopularStyledProps {

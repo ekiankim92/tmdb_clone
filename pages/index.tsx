@@ -1,11 +1,11 @@
 import Home from "../src/components/unit/home/home.container";
-import Popular from "../src/components/unit/popular/popular.container";
+import PopularPage from "../src/components/unit/popular";
 
 export default function HomePage() {
   return (
     <>
       <Home />
-      <Popular />
+      <PopularPage />
     </>
   );
 }
