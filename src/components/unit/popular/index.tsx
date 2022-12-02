@@ -1,4 +1,5 @@
 import Stream from "./stream/stream.container";
+import Tv from "./tv/tv.container";
 import styled from "@emotion/styled";
 import { PopularStyledProps } from "./stream/stream.types";
 import { useState } from "react";
@@ -153,6 +154,9 @@ const PopularPage = () => {
         </RadioWrapper>
       </TitleWrapper>
       {stream && <Stream />}
+      {TV && <Tv />}
+      {rent && <Stream />}
+      {theaters && <Tv />}
     </Wrapper>
   );
 };

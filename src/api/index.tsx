@@ -31,6 +31,7 @@ export const tvApi = {
   topRated: instance.get("tv/top_rated"),
   popular: instance.get("tv/popular"),
   airToday: instance.get("tv/airing_today"),
+  onAirTv: instance.get("tv/on_the_air"),
   showDetail: (id) =>
     instance.get(`tv/${id}`, {
       params: {

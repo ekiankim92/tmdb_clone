@@ -1,15 +1,15 @@
-import * as S from "./stream.styles";
-import { PopularProps } from "./stream.types";
+import * as S from "./tv.styles";
+import { onAirProps } from "./tv.types";
 import { v4 as uuidv } from "uuid";
 import { IMAGE_BASE_URL } from "../../../../common/config";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { progressPercentage } from "../../../../common/libraries/percent";
 
-export default function StreamUI({ tvPopular }: PopularProps) {
+export default function TvUI({ onAir }: onAirProps) {
   return (
     <S.DataWrapper>
-      {tvPopular.map((el: any) => (
+      {onAir.map((el: any) => (
         <S.InnerWrapper key={uuidv()}>
           <S.DataImage src={`${IMAGE_BASE_URL}/w500${el.poster_path}`} />
           <S.ProgressBar>
