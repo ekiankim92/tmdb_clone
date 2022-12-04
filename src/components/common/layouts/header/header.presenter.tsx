@@ -1,18 +1,29 @@
 import * as S from "./header.styles";
 import { logo } from "../../../../common/images";
 import { faSearch, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { useContext } from "react";
-import { GlobalContext } from "../../../../../pages/_app";
-import { GlobalProps } from "../../../unit/home/home.types";
+import { useCallback, useEffect, useState } from "react";
 
 export default function HeaderUI() {
-  const { isShow }: GlobalProps = useContext(GlobalContext);
+  const [isVisible, setIsVisible] = useState(true);
 
-  console.log("header isShow:", isShow);
+  const onScroll = useCallback(() => {
+    const { scrollY } = window;
+    if (scrollY >= 80) {
+      setIsVisible(false);
+    } else if (scrollY <= 75) {
+      setIsVisible(true);
+    }
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", onScroll);
+    }
+  }, []);
 
   return (
     <>
-      <S.Wrapper>
+      <S.Wrapper isVisible={isVisible}>
         <S.DeadSpace />
         <S.LeftWrapper>
           <S.Logo src={logo} />

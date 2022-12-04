@@ -1,5 +1,17 @@
 import styled from "@emotion/styled";
+import { keyframes } from "@emotion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { HeaderProps } from "./header.types";
+
+const fadeOut = keyframes`
+    0% {
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+`;
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -8,6 +20,10 @@ export const Wrapper = styled.div`
   top: 0px;
   background: rgba(3, 37, 65);
   display: flex;
+  z-index: 1;
+  /* visibility: ${(props: HeaderProps) =>
+    props.isVisible ? "visible" : "hidden"}; */
+  animation: 1s ${fadeOut};
 `;
 
 export const DeadSpace = styled.div`
