@@ -3,7 +3,7 @@ import { keyframes } from "@emotion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { HeaderProps } from "./header.types";
 
-const fadeOut = keyframes`
+const fadeIn = keyframes`
     0% {
     opacity: 0;
   }
@@ -21,9 +21,9 @@ export const Wrapper = styled.div`
   background: rgba(3, 37, 65);
   display: flex;
   z-index: 1;
-  /* visibility: ${(props: HeaderProps) =>
-    props.isVisible ? "visible" : "hidden"}; */
-  animation: 1s ${fadeOut};
+  visibility: ${(props: HeaderProps) =>
+    props.isVisible ? "visible" : "hidden"};
+  animation: 1s ${fadeIn};
 `;
 
 export const DeadSpace = styled.div`
