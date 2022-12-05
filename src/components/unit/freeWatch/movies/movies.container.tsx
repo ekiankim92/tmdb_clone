@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import MovieUI from "./movies.presenter";
-import { moviesApi } from "../../../../api";
+import { instance, moviesApi } from "../../../../api";
+import { useRouter } from "next/router";
+import { GlobalContext } from "../../../../../pages/_app";
 
 export default function Movie() {
   const [moviesList, setMovieList] = useState([]);
+  const router = useRouter();
+  const { setData } = useContext(GlobalContext);
 
   const handleMovieData = async () => {
     try {
@@ -19,5 +23,16 @@ export default function Movie() {
     handleMovieData();
   }, []);
 
-  return <MovieUI moviesList={moviesList} />;
+  const onClickDetail = async (movieId: number) => {
+    try {
+      await instance
+        .get(`movie/${movieId}`)
+        .then((response) => setData(response.data));
+      router.push(`board/${movieId}`);
+    } catch (error) {
+      console.log("Detail Error:", error.message);
+    }
+  };
+
+  return <MovieUI moviesList={moviesList} onClickDetail={onClickDetail} />;
 }
