@@ -30,3 +30,9 @@ export const timeDisplay = (getTime) => {
 
   return `${Math.floor(betweenTimeDay / 365)} year ago`;
 };
+
+export const runTime = (time) => {
+  const hour = Math.floor(time / 60);
+  const minute = time % 60;
+  return `${hour}h ${minute}m`;
+};

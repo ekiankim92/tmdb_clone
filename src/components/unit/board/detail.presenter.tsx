@@ -1,19 +1,22 @@
 import * as S from "./detail.styles";
 import { IMAGE_BASE_URL } from "../../../common/config";
+import { runTime } from "../../../common/libraries/utils";
 
 export default function DetailUI({ data }) {
-  console.log("movieDetail:", data);
-  console.log("data.title:", data.title);
-
   /* eslint-disable camelcase */
   const {
     overview,
     poster_path,
-    release_data,
+    release_date,
     title,
     vote_average,
     backdrop_path,
+    runtime,
+    genres,
+    tagline,
   } = data;
+
+  console.log("data:", data);
 
   return (
     <S.Wrapper>
@@ -25,10 +28,16 @@ export default function DetailUI({ data }) {
       <S.DetailWrapper>
         <S.Img src={`${IMAGE_BASE_URL}/w500/${poster_path}`} />
         <S.InfoWrapper>
-          <span>{title}</span>
-          <span>{release_data}</span>
+          <S.TitleLabel>{title}</S.TitleLabel>
+          <S.YearLabel>({release_date?.slice(0, 4)})</S.YearLabel>
+          <S.Date>{release_date}</S.Date>
           <div>{vote_average}</div>
-          <div>{overview}</div>
+          <S.RuntimeLabel>{runTime(runtime)}</S.RuntimeLabel>
+          {genres?.map((el) => (
+            <S.GenresLabel key={el.id}>{el.name}</S.GenresLabel>
+          ))}
+          <S.TaglineLabel>{tagline}</S.TaglineLabel>
+          <S.OverviewLabel>{overview}</S.OverviewLabel>
         </S.InfoWrapper>
       </S.DetailWrapper>
     </S.Wrapper>
